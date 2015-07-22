@@ -5,7 +5,7 @@ class profile::base {
   
   case $operatingsystem {
     'RedHat', 'CentOS': {
-      if $operatingsystemrelease =- /^7.*/ {
+      if $operatingsystemmajrelease == '7' {
         # Remove firewalld
         package { 'firewalld':
           ensure => 'removed'
