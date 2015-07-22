@@ -43,7 +43,7 @@ class profile::base {
     action => 'accept',
   }
   firewall {"004 accept all from private network":
-    source => '172.16.0.0/24',
+    source => hiera("defaults::private_network"),
     proto  => "all",
     state  => ['NEW'],
     action => "accept",
