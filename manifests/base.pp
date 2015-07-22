@@ -8,7 +8,7 @@ class profile::base {
       if $operatingsystemmajrelease == '7' {
         # Remove firewalld
         package { 'firewalld':
-          ensure => 'removed'
+          ensure => 'purged'
         }
       }
     }
