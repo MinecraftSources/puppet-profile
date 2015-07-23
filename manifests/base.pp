@@ -14,6 +14,13 @@ class profile::base {
     }
   }
   
+  # Setup puppet cron
+  cron { 'puppet-apply':
+    user => root,
+    minute => 30,
+    command => '/usr/bin/puppet apply /etc/puppet/manifests/site.pp --logdest syslog'
+  }
+  
   class { 'firewall': }
 
   firewallchain {'OUTPUT:filter:IPv4':
